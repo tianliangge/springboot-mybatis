@@ -1,0 +1,25 @@
+spring:
+  #数据源的配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #代表使用druid类型的数据源
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/dbuser
+    initialSize: 3 
+    minIdle: 3 
+    maxActive: 30 
+    maxWait: 15000 
+    druid:
+      login-username: root
+      login-password: root
+      deny: '10.5.5.118'
+      allow: ''
+      exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      stat-view-servlet-url-pattern: /druid/*
+      web-stat-filter-url-pattern: /*
+#mybati的配置
+mybatis:
+  config-location: classpath:mybatis.cfg.xml   #加载核心配置文件
+  mapper-locations:   #配置Mapper.xml的地址
+  - classpath:mapping/*.xml  
+  type-aliases-package: com.sxt.springboot.domain  #配置另名
